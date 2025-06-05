@@ -1,0 +1,4 @@
+pydantic>=2.0
+pytest>=7.0
+# taskmaster-mcp  # Add correct version/source when available 
+google-adk  # Add the correct version if known 

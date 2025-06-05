@@ -1,0 +1,51 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Local config and secrets (do not share sensitive config)
+config/
+
+# Task/session state (local, not for repo)
+tasks/
+
+# Planning and personal notes (not for repo)
+planning/
+
+# Scripts/utilities (if not essential to share)
+scripts/
+
+# Test and coverage outputs
+htmlcov/
+.coverage
+.tox/
+.nox/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# Why: This .gitignore ensures that only essential source code, documentation, and tests are shared with the team. Local state, secrets, and non-essential artifacts are excluded for security and clarity. 
