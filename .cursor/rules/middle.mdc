@@ -1,0 +1,268 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Project Overview
+Build a Model Context Protocol (MCP) middleware that synchronizes subscription changes across three systems: Chargebee → HubSpot → Firebase using event-driven webhooks architecture.
+System Architecture
+Data Flow
+Chargebee (Subscription Manager) 
+    ↓ [Webhook]
+HubSpot (CRM) 
+    ↓ [Webhook/API]
+Firebase (Admin Database)
+
+Subscription Plans Structure
+OBESIDAD (Zero Plan)
+
+Balance Plan
+
+Adaptable: 0, 6, 12 months
+NoAdaptable: every 5-6 weeks
+
+
+
+Zero + GLP (Medicine)
+
+Medicine Types: Wegovy, Ozempic, Zaxenda
+Variants:
+
+Adaptable: 0, 6, 12 months
+NoAdaptable: every 5-6 weeks
+
+
+Doses: 0.5mg, 1mg, 2mg (affects pricing)
+
+DIABETES Plans
+
+Pro/Total Plan
+Diabetes + GLP Medicine
+
+Medicine Types: Wegovy, Ozempic, Zaxenda
+Doses: 0.5mg, 1mg, 2mg
+
+
+
+Subscription Status Types
+
+New subscription
+Upgrade (e.g., from no-medicine to +GLP)
+Downgrade
+Plan change
+Cancelled
+Paused
+Reactivated
+
+Data Mapping
+Chargebee → HubSpot
+typescriptinterface ChargebeeData {
+  subscription_status: string;
+  customer_id: string;
+  payment_source: string;
+  payment_reference: string;
+  last_paid_amount: number;
+  plan_name: string;
+  treatment: string;
+  medicine_type?: 'Wegovy' | 'Ozempic' | 'Zaxenda';
+  medicine_dose?: '0.5mg' | '1mg' | '2mg';
+  plan_duration?: '0' | '6' | '12' | 'recurring';
+}
+HubSpot → Firebase
+typescriptinterface HubSpotToFirebase {
+  hubspot_id: string;
+  plan: string;
+  marketing_plan: string;
+  plan_status: string;
+  whatsapp_number: string;
+  email_address: string;
+  appointment_preference: string;
+  start_date: string;
+  treatment_details: {
+    medicine_type?: string;
+    dose?: string;
+    duration?: string;
+  };
+}
+Technical Requirements
+Core Technologies
+
+Runtime: Node.js 18+
+Framework: Express.js with TypeScript
+Deployment: Vercel (serverless functions)
+Database: Firebase Admin SDK
+Integrations: Chargebee API, HubSpot API
+Validation: Zod for schema validation
+Logging: Winston or Pino
+Error Handling: Custom error middleware
+
+MCP Integration Points
+
+Chargebee MCP Server: Handle webhook events
+HubSpot MCP Client: Update CRM records
+Firebase MCP Client: Sync admin database
+
+Implementation Structure
+Project Structure
+src/
+├── mcp/
+│   ├── servers/
+│   │   └── chargebee-server.ts
+│   ├── clients/
+│   │   ├── hubspot-client.ts
+│   │   └── firebase-client.ts
+│   └── types/
+│       └── index.ts
+├── api/
+│   ├── webhooks/
+│   │   ├── chargebee.ts
+│   │   └── hubspot.ts
+│   └── health.ts
+├── services/
+│   ├── subscription-sync.ts
+│   ├── data-transformer.ts
+│   └── error-handler.ts
+├── utils/
+│   ├── validators.ts
+│   ├── logger.ts
+│   └── config.ts
+└── types/
+    ├── chargebee.ts
+    ├── hubspot.ts
+    └── firebase.ts
+Key Implementation Requirements
+1. Webhook Security
+
+Implement webhook signature verification for Chargebee
+Rate limiting and request validation
+Idempotency handling for duplicate events
+
+2. Error Handling & Resilience
+
+Exponential backoff retry logic
+Dead letter queue for failed events
+Circuit breaker pattern for external APIs
+Comprehensive logging and monitoring
+
+3. Data Transformation Logic
+typescript// Plan mapping logic
+const planMapper = {
+  'OBESIDAD_BALANCE_ADAPTABLE_6M': {
+    category: 'OBESIDAD',
+    type: 'Balance',
+    variant: 'Adaptable',
+    duration: '6',
+    medicine: null
+  },
+  'ZERO_GLP_WEGOVY_1MG_NOADAPTABLE': {
+    category: 'OBESIDAD',
+    type: 'Zero + GLP',
+    variant: 'NoAdaptable',
+    medicine: 'Wegovy',
+    dose: '1mg'
+  }
+  // ... more mappings
+};
+4. Status Change Handlers
+
+Handle subscription lifecycle events
+Medicine upgrade/downgrade logic
+Dose change pricing calculations
+Pause/resume subscription logic
+
+Development Tasks
+Phase 1: Core Infrastructure
+
+Set up TypeScript project with proper configuration
+Implement MCP server/client architecture
+Create webhook endpoint handlers
+Set up environment configuration and secrets management
+
+Phase 2: Integration Layer
+
+Implement Chargebee webhook processing
+Build HubSpot API integration
+Create Firebase Admin SDK integration
+Add data transformation and validation
+
+Phase 3: Business Logic
+
+Implement subscription plan mapping
+Add status change handlers
+Create medicine upgrade/downgrade logic
+Handle pricing calculations for dose changes
+
+Phase 4: Error Handling & Monitoring
+
+Add comprehensive error handling
+Implement retry mechanisms
+Create logging and monitoring
+Add health check endpoints
+
+Phase 5: Testing & Deployment
+
+Unit and integration tests
+Webhook testing with mock data
+Vercel deployment configuration
+Environment-specific configurations
+
+Environment Variables
+bash# Chargebee
+CHARGEBEE_SITE=your-site
+CHARGEBEE_API_KEY=your-api-key
+CHARGEBEE_WEBHOOK_SECRET=your-webhook-secret
+
+# HubSpot
+HUBSPOT_API_KEY=your-api-key
+HUBSPOT_PORTAL_ID=your-portal-id
+
+# Firebase
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_PRIVATE_KEY=your-private-key
+FIREBASE_CLIENT_EMAIL=your-client-email
+
+# General
+NODE_ENV=production
+LOG_LEVEL=info
+Vercel Configuration
+json{
+  "functions": {
+    "api/webhooks/chargebee.ts": {
+      "maxDuration": 30
+    },
+    "api/webhooks/hubspot.ts": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
+Success Criteria
+
+✅ Real-time synchronization of subscription changes
+✅ Zero data loss during transfers
+✅ Proper error handling and recovery
+✅ Support for all plan combinations and status changes
+✅ Scalable architecture for high-volume webhooks
+✅ Comprehensive logging and monitoring
+✅ Idempotent operations to prevent duplicate processing
+
+Development Notes
+
+Use TypeScript strict mode for type safety
+Implement proper error boundaries
+Add comprehensive JSDoc documentation
+Follow clean architecture principles
+Ensure webhook endpoints are stateless
+Implement proper secret management
+Add rate limiting for external API calls
+
+Testing Strategy
+
+Unit tests for data transformers
+Integration tests for webhook handlers
+End-to-end tests for complete flow
+Mock external API responses
+Test webhook signature verification
+Validate error handling scenarios

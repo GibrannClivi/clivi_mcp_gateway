@@ -1,0 +1,195 @@
+{
+  "users": {
+    "+526645432356": {
+      "whatsapp": "+526645432356",
+      "whatsappOutbound": 526645432356,
+      "nameFirst": "Test",
+      "nameDisplay": "Test",
+      "businessId": "0",
+      "planStatus": "ACTIVE_TRIAL",
+      "whatsappMetadata": { "state": "VERIFIED" },
+      "source": "CRM",
+      "whatsappLast10": "6645432356",
+      "payingPlanFirstStarted": null,
+      "treatments": ["DIABETES"],
+      "marketingPlan": null,
+      "emailAddress": "test0307@clivi.com.mx",
+      "messagingPreferences": { "diabetesRemindersEnabled": true },
+      "nameLastMother": "",
+      "healthSummary": {
+        "glucoseRange": {
+          "fastingHigh": 130,
+          "fastingLow": 80,
+          "postMealHigh": 180,
+          "postMealLow": 80
+        }
+      },
+      "id": "+526645432356",
+      "state": "ENABLED",
+      "msgPlanState": "ON",
+      "created": { "__type__": "Timestamp", "value": "2023-07-03T18:13:20.491Z" },
+      "timeZone": "America/Mexico_City",
+      "payingPlan": false,
+      "blockZombie": false,
+      "nameLastFather": "Lunes 03",
+      "crmId": "7451",
+      "lastInteraction": { "__type__": "Timestamp", "value": "2023-07-03T18:13:32.881Z" },
+      "plan": "ALL",
+      "ref": { "__type__": "Reference", "value": "projects/dtwo-qa/databases/(default)/documents/users/+526645432356" },
+      "userType": "PATIENT",
+      "observations": ["e", "", "", "", ""]
+    },
+    "+526645875358": {
+      "nameFirst": "Test",
+      "nameDisplay": "Test",
+      "businessId": "0",
+      "planStatus": "ACTIVE_TRIAL",
+      "source": "CRM",
+      "whatsappLast10": "6645875358",
+      "payingPlanFirstStarted": null,
+      "treatments": ["DIABETES"],
+      "emailAddress": "test030701@clivi.com.mx",
+      "messagingPreferences": { "diabetesRemindersEnabled": true },
+      "nameLastMother": "",
+      "id": "+526645875358",
+      "state": "ENABLED",
+      "plan": "ALL",
+      "msgPlanState": "ON",
+      "created": { "__type__": "Timestamp", "value": "2023-07-03T20:56:29.373Z" },
+      "timeZone": "America/Mexico_City",
+      "payingPlan": false,
+      "blockZombie": false,
+      "nameLastFather": "Lunes 03 01",
+      "crmId": "7501",
+      "lastInteraction": { "__type__": "Timestamp", "value": "2023-07-03T20:56:43.200Z" },
+      "userType": "PATIENT",
+      "whatsapp": "526645875358",
+      "whatsappOutbound": 5216645875358,
+      "appointments": {
+        "limitLifted": null,
+        "types": {
+          "PATIENT_EXPERIENCE": { "operatorIdAssigned": null },
+          "DIABETES": { "operatorIdAssigned": null },
+          "NUTRITION": { "operatorIdAssigned": null },
+          "GENERAL_MED": { "operatorIdAssigned": null },
+          "PSYCHOLOGY": { "operatorIdAssigned": null }
+        },
+        "meetingTypePreference": null,
+        "sets": null,
+        "autoconfirm": null
+      },
+      "conversationId": null,
+      "whatsappMetadata": { "state": "VERIFIED", "isDuplicate": false },
+      "availability": {
+        "saturday": [
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } },
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } }
+        ],
+        "tuesday": [
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } },
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } }
+        ],
+        "friday": [
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } },
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } }
+        ],
+        "thursday": [
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } },
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } }
+        ],
+        "wednesday": [
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } },
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } }
+        ],
+        "time": "",
+        "day": "",
+        "monday": [
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } },
+          { "start": { "hour": 0, "minute": 0 }, "end": { "hour": 0, "minute": 0 } }
+        ]
+      },
+      "program": {
+        "userModuleId": null,
+        "userModuleWeekNumber": null,
+        "programId": null,
+        "lastUpdatedYearWeek": null
+      },
+      "birthDate": null,
+      "isVip": null,
+      "marketingPlan": "",
+      "tags": [],
+      "saludtoolsId": null,
+      "phoneNumber": null,
+      "caregiver": null,
+      "observations": [],
+      "healthSummary": {
+        "glucoseRange": {
+          "fastingHigh": 130,
+          "fastingLow": 80,
+          "postMealHigh": 180,
+          "postMealLow": 80
+        },
+        "treatmentAdherenceNutrition": null,
+        "targetWeight": null
+      },
+      "age": null,
+      "height": null
+    }
+  },
+  "appointments": {
+    "0a837a2b-bf1f-44b4-976b-4bbadbdd906e": {
+      "bookingSystemId": "https://api.calendly.com/scheduled_events/0a837a2b-bf1f-44b4-976b-4bbadbdd906e",
+      "created": { "__type__": "Timestamp", "value": "2024-04-03T06:46:36.817Z" },
+      "bookingSystem": "CALENDLY",
+      "link": "https://calendly.com/events/0a837a2b-bf1f-44b4-976b-4bbadbdd906e/google_meet",
+      "start": { "__type__": "Timestamp", "value": "2024-04-04T15:00:00Z" },
+      "calId": "PATIENT_EXPERIENCE",
+      "communicationType": "VIDEO",
+      "googleEventId": null,
+      "isGroupEvent": false,
+      "staffType": "PATIENT_EXPERIENCE",
+      "userId": "5215536566916",
+      "eventTitle": "30 Minute Meeting",
+      "cancelUrl": "https://calendly.com/cancellations/35ba3a75-12fa-4aca-a9b0-ad9a326c1c4e",
+      "nameDisplayStaff": "Test Specialist",
+      "lastUpdate": { "__type__": "Timestamp", "value": "2024-04-03T06:46:59.655Z" },
+      "end": { "__type__": "Timestamp", "value": "2024-04-04T15:30:00Z" },
+      "id": "0a837a2b-bf1f-44b4-976b-4bbadbdd906e",
+      "bookedById": "USER",
+      "bookingLinkToken": "1712126770136",
+      "objType": "SCHEDULED",
+      "operatorId": "4us1gn0bInNjANknIQStn1WwlT52",
+      "confirmationStatus": "CONFIRMED",
+      "status": "ATTENDED"
+    },
+    "1ab05433-d309-461b-9488-3419573bff75": {
+      "bookingSystemId": "https://api.calendly.com/scheduled_events/1ab05433-d309-461b-9488-3419573bff75",
+      "confirmationStatus": "AUTOCONFIRMED",
+      "created": { "__type__": "Timestamp", "value": "2024-04-15T19:40:33.633Z" },
+      "bookingSystem": "CALENDLY",
+      "link": "https://calendly.com/events/1ab05433-d309-461b-9488-3419573bff75/google_meet",
+      "start": { "__type__": "Timestamp", "value": "2024-04-16T15:00:00Z" },
+      "calId": "PATIENT_EXPERIENCE",
+      "communicationType": "VIDEO",
+      "googleEventId": null,
+      "isGroupEvent": false,
+      "staffType": "PATIENT_EXPERIENCE",
+      "userId": "5215536566916",
+      "eventTitle": "30 Minute Meeting",
+      "cancelUrl": "https://calendly.com/cancellations/00d7d30e-f77f-4edf-9b37-22def4f5884c",
+      "nameDisplayStaff": "Test Specialist",
+      "lastUpdate": { "__type__": "Timestamp", "value": "2024-04-15T19:40:36.244Z" },
+      "end": { "__type__": "Timestamp", "value": "2024-04-16T15:30:00Z" },
+      "id": "1ab05433-d309-461b-9488-3419573bff75",
+      "bookedById": "USER",
+      "bookingLinkToken": "1713210023123",
+      "objType": "SCHEDULED",
+      "operatorId": "4us1gn0bInNjANknIQStn1WwlT52",
+      "operatorIdThatCanceled": null,
+      "cancelDatetime": { "__type__": "Timestamp", "value": "2024-04-15T20:04:25.817Z" },
+      "replacedByOperatorId": "USER",
+      "cancelReason": "REPLACEMENT",
+      "status": "CANCELED"
+    }
+  }
+} 

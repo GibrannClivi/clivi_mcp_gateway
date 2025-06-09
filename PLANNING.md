@@ -1,13 +1,41 @@
-# PLANNING.md
+# Clivi MCP Gateway
 
 ## Project Overview
-This project leverages TaskMaster MCP for advanced task and session management, following SOLID principles, Screaming Architecture, and strict quality standards.
+This project aims to build a unified MCP (Model Context Protocol) gateway that connects MCP servers from Chargebee, HubSpot, and Firebase. The gateway will allow the PX department, Sales, and other initiatives (such as the AI WhatsApp bot deployed on Google Cloud) to interact with these services through a single, unified MCP client, streamlining data synchronization and integration.
+
+## Objectives
+- Develop a unified MCP client that connects to Chargebee, HubSpot, and Firebase MCP servers.
+- Provide a seamless interface for the PX department, Sales, and other initiatives to manage and synchronize data across these platforms.
+- Ensure robust error handling, logging, and monitoring for reliable operation.
+- Follow best practices for scalability, maintainability, and security.
 
 ## Architecture
-- **Screaming Architecture**: Folders are named by feature/responsibility, not technical type.
-- **Layered/Hexagonal**: Business logic, interfaces, and infrastructure are separated.
-- **TaskMaster MCP**: Central engine for task management, session persistence, and progress tracking.
-- **pydantic**: Used for all data validation.
+- **MCP Gateway**: Central component that manages connections to external MCP servers.
+- **MCP Clients**: Individual clients for Chargebee, HubSpot, and Firebase, each handling specific API interactions.
+- **Unified Interface**: A single client interface for all departments and initiatives to interact with connected services.
+
+## Implementation Plan
+1. **Setup and Configuration**
+   - Configure environment variables for API keys and secrets.
+   - Set up development and testing environments.
+
+2. **MCP Client Development**
+   - Implement individual MCP clients for Chargebee, HubSpot, and Firebase.
+   - Develop a unified client interface.
+
+3. **Integration and Testing**
+   - Integrate all MCP clients into the gateway.
+   - Conduct thorough testing to ensure seamless data flow and error handling.
+
+4. **Deployment and Monitoring**
+   - Deploy the MCP gateway to production.
+   - Implement monitoring and logging for ongoing maintenance.
+
+## Success Criteria
+- Successful connection and data synchronization between Chargebee, HubSpot, and Firebase.
+- Reliable error handling and logging.
+- Seamless user experience for all departments and initiatives.
+- Scalable and maintainable architecture.
 
 ## Initial Folder Structure
 ```
